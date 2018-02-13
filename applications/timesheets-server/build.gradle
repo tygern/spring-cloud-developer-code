@@ -1,5 +1,11 @@
 apply from: "$projectDir/../server.gradle"
 
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-netflix:1.4.3.RELEASE'
+    }
+}
 dependencies {
+    compile("org.springframework.cloud:spring-cloud-starter-hystrix")
     compile project(":components:timesheets")
 }
