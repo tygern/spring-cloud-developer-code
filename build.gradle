@@ -1,8 +1,9 @@
 
 buildscript {
     ext {
-        springBootVersion = "1.5.9.RELEASE"
-        springVersion = "4.3.13.RELEASE"
+        springBootVersion = "1.5.10.RELEASE"
+        springVersion = "4.3.14.RELEASE"
+        springCloudVersion = 'Edgware.SR2'
         jacksonVersion ="2.9.3"
     }
 

@@ -34,7 +34,9 @@ public class ApplicationServer {
 
     public void start() throws IOException {
         start(envMapBuilder()
-            .put("REGISTRATION_SERVER_ENDPOINT", "http://localhost:8883")
+            .put("EUREKA_CLIENT_ENABLED", "false")
+            .put("RIBBON_EUREKA_ENABLED", "false")
+            .put("REGISTRATION_SERVER_RIBBON_LISTOFSERVERS", "http://localhost:8883")
             .build()
         );
     }

@@ -1,4 +1,5 @@
 apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
 
 dependencyManagement {
     imports {
@@ -7,11 +8,7 @@ dependencyManagement {
 }
 
 dependencies {
-    compile project(":components:rest-support")
-
     compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+    compile "org.springframework.cloud:spring-cloud-starter-eureka-server"
 
-    testCompile project(":components:test-support")
 }
