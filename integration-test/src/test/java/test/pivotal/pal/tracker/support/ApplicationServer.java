@@ -8,6 +8,7 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.fail;
 import static test.pivotal.pal.tracker.support.MapBuilder.envMapBuilder;
 
+
 public class ApplicationServer {
 
     private final String jarPath;
@@ -19,7 +20,6 @@ public class ApplicationServer {
         this.jarPath = jarPath;
         this.port = port;
     }
-
 
     public void start(Map<String, String> env) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder()
@@ -34,7 +34,6 @@ public class ApplicationServer {
 
     public void start() throws IOException {
         start(envMapBuilder()
-            .put("REGISTRATION_SERVER_ENDPOINT", "http://localhost:8883")
             .build()
         );
     }

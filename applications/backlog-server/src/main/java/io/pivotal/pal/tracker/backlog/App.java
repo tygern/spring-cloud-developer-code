@@ -1,15 +1,16 @@
 package io.pivotal.pal.tracker.backlog;
 
-import org.springframework.beans.factory.annotation.Value;
+import io.pivotal.pal.tracker.restsupport.ServiceLocator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.client.RestOperations;
 
 import java.util.TimeZone;
 
-
+@EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan({"io.pivotal.pal.tracker.backlog", "io.pivotal.pal.tracker.restsupport"})
 public class App {
@@ -21,9 +22,9 @@ public class App {
 
     @Bean
     ProjectClient projectClient(
-        RestOperations restOperations,
-        @Value("${registration.server.endpoint}") String registrationEndpoint
+            ServiceLocator serviceLocator,
+            RestOperations restOperations
     ) {
-        return new ProjectClient(restOperations, registrationEndpoint);
+        return new ProjectClient(serviceLocator,restOperations);
     }
 }
