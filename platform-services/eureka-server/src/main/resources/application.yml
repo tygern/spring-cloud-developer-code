@@ -1,5 +1,31 @@
 spring.application.name: eureka-server
+logging.level.com.netflix: DEBUG
+management:
+  security:
+    enabled: false
 
+# Default Eureka Port
+#server:
+#  port: 8761
+
+
+## Running Eureka in standalone mode
+#server:
+#  port: 8761
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#  datacenter: san-franciso
+#  environment: qa
+
+
+## Running Eureka in Peer Cluster Mode (single AZ)
 ---
 spring:
   profiles: eureka-peer1
@@ -18,8 +44,8 @@ eureka:
     preferSameZoneEureka: true
     healthcheck:
       enabled: false
-  datacenter: chicago
-  environment: production
+  datacenter: san-franciso
+  environment: qa
 
 ---
 spring:
@@ -39,5 +65,5 @@ eureka:
     preferSameZoneEureka: true
     healthcheck:
       enabled: false
-  datacenter: chicago
-  environment: production
+  datacenter: san-franciso
+  environment: qa
