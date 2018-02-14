@@ -22,11 +22,16 @@ public class ApplicationServer {
     }
 
     public void start(Map<String, String> env) throws IOException {
+
         ProcessBuilder processBuilder = new ProcessBuilder()
             .command("java", "-jar", jarPath)
             .inheritIO();
 
         processBuilder.environment().put("SERVER_PORT", port);
+        processBuilder.environment().put("SERVICE_LOCATOR_ENDPOINT_REGISTRATION_SERVER",
+                "http://localhost:8883");
+        processBuilder.environment().put("SERVICE_LOCATOR",
+                "local-config");
         env.forEach((key, value) -> processBuilder.environment().put(key, value));
 
         serverProcess = processBuilder.start();
