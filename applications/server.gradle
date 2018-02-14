@@ -5,7 +5,10 @@ dependencies {
 
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
-    compile "org.springframework.cloud:spring-cloud-starter-config:1.1.2.RELEASE"
+
+    // Can we get rid of the version when we move the parent bom into
+    // master?
+    compile "org.springframework.cloud:spring-cloud-starter-config:1.4.2.RELEASE"
 
     testCompile project(":components:test-support")
 }
