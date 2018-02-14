@@ -8,7 +8,6 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.fail;
 import static test.pivotal.pal.tracker.support.MapBuilder.envMapBuilder;
 
-
 public class ApplicationServer {
 
     private final String jarPath;
@@ -21,8 +20,8 @@ public class ApplicationServer {
         this.port = port;
     }
 
-    public void start(Map<String, String> env) throws IOException {
 
+    public void start(Map<String, String> env) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder()
             .command("java", "-jar", jarPath)
             .inheritIO();
