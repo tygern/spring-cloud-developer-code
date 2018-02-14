@@ -1,0 +1,22 @@
+spring.application.name: timesheets-server
+server.port: 8084
+
+logging.level.com.netflix: DEBUG
+
+registration.server.endpoint: http://registration-server
+
+management:
+  security:
+    enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+#      us-east-1a: http://localhost:8761/eureka/
+#      us-east-1b: http://localhost:8762/eureka/
+#    availability-zones:
+#      us-east-1: us-east-1a,us-east-1b
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30
+    eureka-service-url-poll-interval-seconds: 60
